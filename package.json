@@ -4,9 +4,10 @@
   "description": "API with Node.js and Typescript",
   "main": "build/app.js",
   "scripts": {
-    "start": "ts-node src/app.ts",
     "build": "tsc",
-    "serve": "node build/app.js"
+    "start": "ts-node-dev --respawn --transpile-only --exit-child ./src/app.ts",
+    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && npx prisma generate",
+    "db:push": "npx prisma db push"
   },
   "keywords": [
     "node.js",
