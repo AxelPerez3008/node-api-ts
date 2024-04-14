@@ -5,7 +5,7 @@
   "main": "build/app.js",
   "scripts": {
     "start": "node build/app.js",
-    "build": "tsc && prisma generate",
+    "build": "prisma generate",
     "install": "npm install",
     "prisma:init": "prisma init",
     "prisma:migrate": "prisma migrate deploy",
