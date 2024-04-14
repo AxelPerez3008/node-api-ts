@@ -4,12 +4,10 @@
   "description": "API with Node.js and Typescript",
   "main": "build/app.js",
   "scripts": {
-    "start": "node build/app.js",
-    "build": "node build/app.js",
-    "install": "npm install",
-    "prisma:init": "prisma init",
-    "prisma:migrate": "prisma migrate deploy",
-    "prisma:studio": "prisma studio"
+    "build": "yarn",
+    "start": "ts-node-dev --respawn --transpile-only --exit-child server.ts",
+    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && npx prisma generate",
+    "db:push": "npx prisma db push"
   },
   "keywords": [
     "node.js",
