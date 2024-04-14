@@ -26,13 +26,11 @@ const RegisterUser = async (
       message: "Registrado correctamente, ya puedes empezar a comprar.",
     });
   } catch (error: any) {
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      if (error.code === "P2002") {
-        return res.status(409).json({
-          status: "fail",
-          message: "Email already exist, please use another email address",
-        });
-      }
+    if (error.code === "P2002") {
+      return res.status(409).json({
+        status: "fail",
+        message: "Email already exist, please use another email address",
+      });
     }
     res.status(500).json({
       status: "error",
@@ -50,7 +48,7 @@ const LoginUser = async (req: Request, res: Response, next: NextFunction) => {
     if (!user) {
       return res.status(404).json({
         status: "fail",
-        message: "No user with that email exists",
+        message: "No user with that email exists", 
       });
     }
 
